@@ -10,7 +10,7 @@ require("config.inc.php");
 $query_params=null;
 
 //initial query
-$query = "Select * FROM customers";
+$query = "Select id, valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter, active FROM customers";
 
 //execute query
 try {
