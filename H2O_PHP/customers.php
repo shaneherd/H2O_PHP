@@ -41,6 +41,7 @@ if ($rows) {
 		$post["serviceStartDate"]  = $row["serviceStartDate"];
 		$post["litersPerDay"]  = $row["litersPerDay"];
 		$post["pricePerLiter"]  = $row["pricePerLiter"];
+		$post["active"]  = $row["active"];
         
         
         //update our repsonse JSON data
