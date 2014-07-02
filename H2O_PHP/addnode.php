@@ -25,12 +25,12 @@ if (!empty($_POST)) {
         
         //or just use this use this one:
         $response["success"] = 0;
-        $response["message"] = "Database Error. Couldn't add customer!";
+        $response["message"] = "Database Error. Couldn't add node!";
         die(json_encode($response));
     }
 
     $response["success"] = 1;
-    $response["message"] = "Customer Successfully Added!";
+    $response["message"] = "Node Successfully Added!";
     echo json_encode($response);
    
 } else {
