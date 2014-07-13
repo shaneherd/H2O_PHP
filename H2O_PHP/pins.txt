@@ -1,0 +1,5 @@
+pin        - high   - low
+initialize - app    - h2o.py
+ready      - h2o.py - app
+start      - app    - h2o.py
+stop       - app    - h2o.py

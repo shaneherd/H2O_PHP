@@ -1,0 +1,24 @@
+Listen for data from store
+if data != start {
+	add data to list of addresses to run
+	send response to store to confirm data receieved
+} else {
+	numToPerform = list.len()
+	i = 0
+	while (i < numToPerform and stopReceived = false) {
+		listen for stop from store
+		if (stopReceieved) {
+			send confimation to store of stop receieved
+		}
+		open valve[i]
+		i = i + 1
+		
+		if (i = numToPerform - 1) { //on the second to last one
+			noResponse = true
+			while (noResponse) {
+				send "almostDone" to store
+				listen for response from store to confirm data receieved
+			}
+		}
+	}
+}
