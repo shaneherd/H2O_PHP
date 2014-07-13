@@ -3,10 +3,9 @@
 //load and connect to MySQL database stuff
 require("config.inc.php");
 
-if (!empty($_POST)) {
+if (!empty($_POST)) {	
 	//initial query
-	$query = "INSERT INTO customers ( valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter, active ) VALUES ( :valveID, :firstName, :lastName, :serviceStartDate, :litersPerDay, :pricePerLiter, :active ) ";
-	//Update query
+	$query = "INSERT INTO customers ( valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter, active ) VALUES ( UNHEX(:valveID), :firstName, :lastName, :serviceStartDate, :litersPerDay, :pricePerLiter, :active )";
     $query_params = array(
 		':valveID' => $_POST['valveID'],
 		':firstName' => $_POST['firstName'],
@@ -35,7 +34,24 @@ if (!empty($_POST)) {
     $response["success"] = 1;
     $response["message"] = "Customer Successfully Added!";
     echo json_encode($response);
-   
+    
+    $valve = $_POST['valveID'];
+    $query = "UPDATE nodes SET active=1 WHERE address = x'$valve'";
+    
+    //execute query
+    try {
+    	$stmt   = $db->prepare($query);
+    	$stmt->execute();
+    }
+    catch (PDOException $ex) {
+    	$response["success"] = 0;
+    	$response["message"] = "Database Error. Couldn't activate valve!";
+    	die(json_encode($response));
+    }
+    
+    $response["success"] = 1;
+    $response["message"] = "Valve Successfully Activated!";
+    echo json_encode($response);
 } else {
 ?>
 		<h1>Add Customer</h1> 

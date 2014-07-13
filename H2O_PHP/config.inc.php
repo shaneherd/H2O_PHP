@@ -1,7 +1,7 @@
 <?php
 
-	$username = "shane";
-	$password = "password";
+	$username = "root";
+	$password = "raspberry";
 	$host = "localhost";
 	$dbname = "h2o";
 	
