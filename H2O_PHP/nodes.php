@@ -10,7 +10,7 @@ require("config.inc.php");
 $query_params=null;
 
 //initial query
-$query = "Select id, HEX(address) as address, type, HEX(parent) as parent, active FROM nodes";
+$query = "Select id, HEX(address) as address, type, HEX(parent) as parent, active FROM nodes WHERE type != '1'";
 
 //execute query
 try {

@@ -10,7 +10,7 @@ require("config.inc.php");
 $query_params=null;
 
 //initial query
-$query = "Select id, valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter, active FROM customers";
+$query = "Select id, HEX(valveID) as valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter FROM customers";
 
 //execute query
 try {
@@ -41,7 +41,6 @@ if ($rows) {
 		$post["serviceStartDate"]  = $row["serviceStartDate"];
 		$post["litersPerDay"]  = $row["litersPerDay"];
 		$post["pricePerLiter"]  = $row["pricePerLiter"];
-		$post["active"]  = $row["active"];
         
         
         //update our repsonse JSON data

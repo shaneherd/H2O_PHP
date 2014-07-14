@@ -5,15 +5,14 @@ require("config.inc.php");
 
 if (!empty($_POST)) {	
 	//initial query
-	$query = "INSERT INTO customers ( valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter, active ) VALUES ( UNHEX(:valveID), :firstName, :lastName, :serviceStartDate, :litersPerDay, :pricePerLiter, :active )";
+	$query = "INSERT INTO customers ( valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter ) VALUES ( UNHEX(:valveID), :firstName, :lastName, :serviceStartDate, :litersPerDay, :pricePerLiter)";
     $query_params = array(
 		':valveID' => $_POST['valveID'],
 		':firstName' => $_POST['firstName'],
 		':lastName' => $_POST['lastName'],
 		':serviceStartDate' => $_POST['serviceStartDate'],
 		':litersPerDay' => $_POST['litersPerDay'],
-		':pricePerLiter' => $_POST['pricePerLiter'],
-    	':active' => $_POST['active']
+		':pricePerLiter' => $_POST['pricePerLiter']
     );
   
 	//execute query
@@ -73,9 +72,6 @@ if (!empty($_POST)) {
 		    <br /><br />
 			pricePerLiter:<br /> 
 		    <input type="text" name="pricePerLiter" placeholder="pricePerLiter" /> 
-		    <br /><br />
-		    active:<br /> 
-		    <input type="text" name="active" placeholder="active" /> 
 		    <br /><br />
 		    <input type="submit" value="Add Customer" /> 
 		</form> 

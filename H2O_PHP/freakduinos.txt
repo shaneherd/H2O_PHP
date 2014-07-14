@@ -22,3 +22,8 @@ if data != start {
 		}
 	}
 }
+
+start 0xff00
+stop  0xffff
+almost done  0xffcc
+flow meter isn't flowing 0xffdd
