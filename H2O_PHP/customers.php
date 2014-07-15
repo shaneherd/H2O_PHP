@@ -10,7 +10,7 @@ require("config.inc.php");
 $query_params=null;
 
 //initial query
-$query = "Select id, HEX(valveID) as valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter FROM customers";
+$query = "Select id, valveID as valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter FROM customers";
 
 //execute query
 try {

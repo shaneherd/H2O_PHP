@@ -9,7 +9,6 @@ if (!empty($_POST)) {
 	$type = $_POST['type'];
 	$parent = $_POST['parent'];
 	$active = $_POST['active'];
-	$oldAddress = $_POST['oldAddress'];
     $query = "UPDATE nodes SET address = x'$address', type=$type, parent=x'$parent', active=$active  where id = $valveID";
     
     //execute query

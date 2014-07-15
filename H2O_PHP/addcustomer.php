@@ -5,7 +5,7 @@ require("config.inc.php");
 
 if (!empty($_POST)) {	
 	//initial query
-	$query = "INSERT INTO customers ( valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter ) VALUES ( UNHEX(:valveID), :firstName, :lastName, :serviceStartDate, :litersPerDay, :pricePerLiter)";
+	$query = "INSERT INTO customers ( valveID, firstName, lastName, serviceStartDate, litersPerDay, pricePerLiter ) VALUES ( :valveID, :firstName, :lastName, :serviceStartDate, :litersPerDay, :pricePerLiter)";
     $query_params = array(
 		':valveID' => $_POST['valveID'],
 		':firstName' => $_POST['firstName'],
@@ -35,7 +35,7 @@ if (!empty($_POST)) {
     echo json_encode($response);
     
     $valve = $_POST['valveID'];
-    $query = "UPDATE nodes SET active=1 WHERE address = x'$valve'";
+    $query = "UPDATE nodes SET active=1 WHERE id = $valve";
     
     //execute query
     try {
