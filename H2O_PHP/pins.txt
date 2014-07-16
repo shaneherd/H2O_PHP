@@ -3,3 +3,4 @@ initialize - app    - h2o.py
 ready      - h2o.py - app
 start      - app    - h2o.py
 stop       - app    - h2o.py
+done       - h2o.py - app

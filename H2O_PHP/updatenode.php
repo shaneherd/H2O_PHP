@@ -25,22 +25,6 @@ if (!empty($_POST)) {
     $response["success"] = 1;
     $response["message"] = "Node Successfully Updated!";
     echo json_encode($response);
-    
-    //execute query
-    try {
-    	$stmt   = $db->prepare($query);
-    	$stmt->execute();
-    }
-    catch (PDOException $ex) {
-    	$response["success"] = 0;
-    	$response["message"] = "Database Error. Couldn't update customer!";
-    	die(json_encode($response));
-    }
-    
-    $response["success"] = 1;
-    $response["message"] = "Customer Successfully Updated!";
-    echo json_encode($response);
-   
 } else {
 ?>
 		<h1>Update Node</h1> 
