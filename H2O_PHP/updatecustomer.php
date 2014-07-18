@@ -29,10 +29,8 @@ if (!empty($_POST)) {
     $response["message"] = "Customer Successfully Updated!";
     echo json_encode($response);
     
-    
-    //update the valve status
-    $query = "UPDATE nodes SET active=1 WHERE id=$valveID";
-    	
+    $query = "UPDATE nodes SET active=0 WHERE id=$oldValveID";
+     
     //execute query
     try {
     	$stmt   = $db->prepare($query);
@@ -48,8 +46,9 @@ if (!empty($_POST)) {
     $response["message"] = "Node Successfully Updated!";
     echo json_encode($response);
     
-    $query = "UPDATE nodes SET active=0 WHERE id=$oldValveID";
-     
+    //update the valve status
+    $query = "UPDATE nodes SET active=1 WHERE id=$valveID";
+    	
     //execute query
     try {
     	$stmt   = $db->prepare($query);
